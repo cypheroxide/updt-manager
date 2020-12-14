@@ -24,6 +24,7 @@ clean() {
 echo "Cleaning up..."
 sudo apt autoremove -yy
 sudo apt autoclean
+sudo apt purge
 
 }
 
@@ -48,13 +49,13 @@ cat << _EOF_
     Running "updt" with no options will update the apt cache and the perfrom a full
     distribution update automatically.
 
-    up --clean = full system update with cleanup.
+    updt --clean = full system update with cleanup.
 
     Adding the "--clean" option will invoke the apt commands to search for and remove locally
     cached packages that are no longer in the repositories and remove orphaned packages that
     are no long needed by programs.
 
-    up --help = shows this help page
+    updt --help = shows this help page
 
  By CypherOxide https://github.com/cypheroxide (GNU/General Public License version 2.0)
 
@@ -77,7 +78,7 @@ if [ "$1" == "--clean" ]; then
 fi
 
 if [ "$1" == "--help" ]; then
-   updt-help
+   updt --help
    exit
 fi
 
